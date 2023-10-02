@@ -39,7 +39,7 @@ public class Entity {
     }
 
     public void setHealth(int health) {
-        if (health >= 0 || health <= Integer.MAX_VALUE) {
+        if (health > 1 ) {
             this.health = health;
         } else {
             throw new IllegalArgumentException("Health is less than 0 or out of range ");
@@ -73,4 +73,6 @@ public class Entity {
             anotherEntity.health -= totalDamage;
         }
     }
+
+
 }

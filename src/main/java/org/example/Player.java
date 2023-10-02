@@ -15,5 +15,8 @@ public class Player extends Entity{
             setHealth(maxHealth + (int)(maxHealth*0.3));
             healCount++;
         }
+        else {
+            throw new IllegalArgumentException("The heal count is over");
+        }
     }
 }
