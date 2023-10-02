@@ -1,19 +1,37 @@
 package org.example;
 
-// Press Shift twice to open the Search Everywhere dialog and type `show whitespaces`,
-// then press Enter. You can now see whitespace characters in your code.
 public class Main {
     public static void main(String[] args) {
-        // Press Opt+Enter with your caret at the highlighted text to see how
-        // IntelliJ IDEA suggests fixing it.
-        System.out.printf("Hello and welcome!");
+        Player player = new Player(18, 24, 50);
+        Monster goblin = new Monster(10, 6, 40);
 
-        // Press Ctrl+R or click the green arrow button in the gutter to run the code.
-        for (int i = 1; i <= 5; i++) {
+        System.out.println("Player MAX HP: " + player.maxHealth);
 
-            // Press Ctrl+D to start debugging your code. We have set one breakpoint
-            // for you, but you can always add more by pressing Cmd+F8.
-            System.out.println("i = " + i);
+        while (true) {
+            if (player.getHealth() <= 0) {
+                System.out.println("You died!");
+                break;
+            } else {
+                System.out.println("PLAYER HP: " + player.getHealth());
+                player.attack(goblin);
+            }
+
+            if (goblin.getHealth() <= 0) {
+                System.out.println("You defeated the monster!");
+                break;
+            } else {
+                System.out.println("MONSTER HP: " + goblin.getHealth());
+                goblin.attack(player);
+            }
+            try {
+                Thread.sleep(300);
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            }
         }
+        System.out.println("Player HP: " + player.getHealth());
+        player.heal();
+        System.out.println("Player HP: " + player.getHealth());
     }
 }
+
