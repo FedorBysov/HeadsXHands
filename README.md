@@ -1,5 +1,3 @@
 # HeadsXHands
-Test task
+Test task in HeadsXHands
 
-Мой телеграм каннал @byssov 
-Возьмите меня пожалуйста)
